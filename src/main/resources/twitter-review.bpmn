@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1lvz53z" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.16.2">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1lvz53z" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.0.1">
   <bpmn:collaboration id="Collaboration_1y44tdo">
     <bpmn:participant id="Participant_18e1752" name="Verarbeitung von Tweet-Anfragen" processRef="VerarbeitungVonTweetAnfragen" />
   </bpmn:collaboration>
@@ -60,7 +60,7 @@
         <camunda:formData>
           <camunda:formField id="alias" label="Kürzel" type="string" />
           <camunda:formField id="tweetContent" label="Zu veröffentlichender Text" type="string" />
-          <camunda:formField id="checkResult" label="Hinweise für Mitarbeiter zum Prüfergebnis" type="enum">
+          <camunda:formField id="checkResult" label="Prüfergebnis" type="enum">
             <camunda:value id="accepted" name="Genehmigt" />
             <camunda:value id="revisable" name="Zu überarbeiten" />
             <camunda:value id="rejected" name="Abgelehnt" />
@@ -75,7 +75,11 @@
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="tweetContent" label="Zu veröffentlichender Text" type="string" />
-          <camunda:formField id="checkResultComment" label="Hinweise für Mitarbeiter zum Prüfergebnis" type="string" />
+          <camunda:formField id="checkResultComment" label="Hinweise für Mitarbeiter zum Prüfergebnis" type="string">
+            <camunda:properties>
+              <camunda:property id="disabled" />
+            </camunda:properties>
+          </camunda:formField>
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>ZuUeberarbeiten</bpmn:incoming>
@@ -208,7 +212,7 @@ execution.setVariable("alias", emailAdress.substring(0,4));</bpmn:script>
         <di:waypoint x="546" y="458" />
         <di:waypoint x="612" y="458" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="550" y="438" width="53" height="14" />
+          <dc:Bounds x="551" y="438" width="52" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_123e4w3_di" bpmnElement="ZuUeberarbeiten">
